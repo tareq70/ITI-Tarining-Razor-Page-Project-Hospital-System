@@ -7,6 +7,14 @@ The system aims to manage hospital data (hospitals, patients, doctors, medical r
 This project was developed as an **individual task required by ITI**.  
 I built it completely by myself, and it was later reviewed and verified by the supervisor.
 
+The project follows the Database First Approach.
+I had an existing SQL Server database, and I used Entity Framework Core Scaffolding to generate the Models and DbContext directly from it.
+
+---
+
+## ERD 
+<img width="675" height="483" alt="ERD for hospital" src="https://github.com/user-attachments/assets/2cfcc877-3a17-4685-918c-467114368c42" />
+
 ---
 
 ## Features
@@ -37,10 +45,3 @@ I built it completely by myself, and it was later reviewed and verified by the s
 - Identity Scaffolding
 - SQL Server
 - Bootstrap
-
----
-
-## Installation & Setup
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/your-username/HospitalManagementSystem-RazorPages.git
