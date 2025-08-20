@@ -1,0 +1,52 @@
+﻿@page
+@model ITI_Tarining_Razor_Page_Project_Hospital_System.Pages.Hospitals.EditModel
+
+@{
+    ViewData["Title"] = "Edit Hospital";
+}
+
+<div class="container mt-4">
+    <div class="card shadow-sm p-4 mx-auto" style="max-width: 600px;">
+        <h2 class="text-warning mb-3">Edit Hospital</h2>
+        <hr />
+
+        <form method="post">
+            <input type="hidden" asp-for="Hospital.Id" />
+
+            <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+            <div class="mb-3">
+                <label asp-for="Hospital.Name" class="form-label fw-bold"></label>
+                <input asp-for="Hospital.Name" class="form-control" placeholder="Enter hospital name" />
+                <span asp-validation-for="Hospital.Name" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Hospital.Address" class="form-label fw-bold"></label>
+                <input asp-for="Hospital.Address" class="form-control" placeholder="Enter address" />
+                <span asp-validation-for="Hospital.Address" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Hospital.City" class="form-label fw-bold"></label>
+                <input asp-for="Hospital.City" class="form-control" placeholder="Enter city" />
+                <span asp-validation-for="Hospital.City" class="text-danger"></span>
+            </div>
+
+            <div class="d-flex gap-2">
+                <button type="submit" class="btn btn-primary">
+                    <i class="bi bi-check-circle"></i> Save
+                </button>
+                <a asp-page="./Index" class="btn btn-secondary">
+                    <i class="bi bi-arrow-left"></i> Back to List
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

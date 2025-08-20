@@ -1,0 +1,56 @@
+﻿@page
+@model ITI_Tarining_Razor_Page_Project_Hospital_System.Pages.Patients.CreateModel
+
+@{
+    ViewData["Title"] = "Create Patient";
+}
+
+<div class="card shadow-sm p-4">
+    <h2 class="text-primary mb-3">Add New Patient</h2>
+    <hr />
+
+    <form method="post">
+        <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+        <div class="mb-3">
+            <label asp-for="Patient.Name" class="form-label fw-bold"></label>
+            <input asp-for="Patient.Name" class="form-control" placeholder="Enter patient name" />
+            <span asp-validation-for="Patient.Name" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Patient.Diagnosis" class="form-label fw-bold"></label>
+            <input asp-for="Patient.Diagnosis" class="form-control" placeholder="Enter diagnosis" />
+            <span asp-validation-for="Patient.Diagnosis" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Patient.Address" class="form-label fw-bold"></label>
+            <input asp-for="Patient.Address" class="form-control" placeholder="Enter address" />
+            <span asp-validation-for="Patient.Address" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Patient.HospitalId" class="form-label fw-bold">Hospital</label>
+            <select asp-for="Patient.HospitalId" class="form-select" asp-items="@(ViewData["HospitalId"] as SelectList)">
+                <option value="">-- Select Hospital --</option>
+            </select>
+
+
+            <span asp-validation-for="Patient.HospitalId" class="text-danger"></span>
+        </div>
+
+        <div class="d-flex gap-2">
+            <button type="submit" class="btn btn-primary">
+                <i class="bi bi-check-circle"></i> Create
+            </button>
+            <a asp-page="Index" class="btn btn-secondary">
+                <i class="bi bi-arrow-left"></i> Back to List
+            </a>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

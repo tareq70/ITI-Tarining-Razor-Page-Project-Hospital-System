@@ -1,0 +1,50 @@
+﻿@page
+@model ITI_Tarining_Razor_Page_Project_Hospital_System.Pages.Patients.DetailsModel
+
+@{
+    ViewData["Title"] = "Patient Details";
+}
+
+<div class="card shadow-sm p-4">
+    <h2 class="text-primary mb-3">Patient Details</h2>
+    <hr />
+
+    <dl class="row">
+        <dt class="col-sm-3 fw-bold">
+            @Html.DisplayNameFor(model => model.Patient.Name)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Patient.Name)
+        </dd>
+
+        <dt class="col-sm-3 fw-bold">
+            @Html.DisplayNameFor(model => model.Patient.Diagnosis)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Patient.Diagnosis)
+        </dd>
+
+        <dt class="col-sm-3 fw-bold">
+            @Html.DisplayNameFor(model => model.Patient.Address)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Patient.Address)
+        </dd>
+
+        <dt class="col-sm-3 fw-bold">
+            Hospital
+        </dt>
+        <dd class="col-sm-9">
+            @Model.Patient.Hospital?.Name
+        </dd>
+    </dl>
+
+    <div class="d-flex gap-2 mt-3">
+        <a asp-page="./Edit" asp-route-id="@Model.Patient.Id" class="btn btn-warning">
+            <i class="bi bi-pencil-square"></i> Edit
+        </a>
+        <a asp-page="./Index" class="btn btn-secondary">
+            <i class="bi bi-arrow-left"></i> Back to List
+        </a>
+    </div>
+</div>

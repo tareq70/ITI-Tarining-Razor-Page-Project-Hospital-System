@@ -1,0 +1,29 @@
+﻿@page
+@model ITI_Tarining_Razor_Page_Project_Hospital_System.Pages.IndexModel
+
+<div class="container text-center mt-5">
+    <h1 class="display-4 mb-3">Welcome to Hospital System</h1>
+    <p class="lead mb-4">
+        Manage <strong>Hospitals</strong> and <strong>Patients</strong> efficiently.
+    </p>
+
+    <div class="d-flex justify-content-center flex-wrap gap-3 mt-5">
+        <a asp-page="/Hospitals/Index" class="btn btn-primary btn-lg d-flex align-items-center gap-2">
+            <i class="bi bi-hospital"></i> Hospitals
+        </a>
+
+        <a asp-page="/Doctors/Index" class="btn btn-warning btn-lg d-flex align-items-center gap-2">
+            <i class="bi bi-person-badge"></i> Doctors
+        </a>
+
+        <a asp-page="/Patients/Index" class="btn btn-success btn-lg d-flex align-items-center gap-2">
+            <i class="bi bi-person-lines-fill"></i> Patients
+        </a>
+
+        <a asp-page="/MedicalRecords/Index" class="btn btn-danger btn-lg d-flex align-items-center gap-2">
+            <i class="bi bi-file-medical"></i> Medical Records
+        </a>
+
+    </div>
+
+</div>

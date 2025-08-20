@@ -1,0 +1,33 @@
+﻿@page
+@model ITI_Tarining_Razor_Page_Project_Hospital_System.Pages.Hospitals.DetailsModel
+
+@{
+    ViewData["Title"] = "Hospital Details";
+}
+
+<div class="container mt-4">
+    <div class="card shadow-sm p-4 mx-auto" style="max-width: 600px;">
+        <h2 class="text-primary mb-3">Hospital Details</h2>
+        <hr />
+
+        <dl class="row mb-4">
+            <dt class="col-sm-3 fw-bold">@Html.DisplayNameFor(model => model.Hospital.Name)</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.Hospital.Name)</dd>
+
+            <dt class="col-sm-3 fw-bold">@Html.DisplayNameFor(model => model.Hospital.Address)</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.Hospital.Address)</dd>
+
+            <dt class="col-sm-3 fw-bold">@Html.DisplayNameFor(model => model.Hospital.City)</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.Hospital.City)</dd>
+        </dl>
+
+        <div class="d-flex gap-2">
+            <a asp-page="./Edit" asp-route-id="@Model.Hospital.Id" class="btn btn-warning">
+                <i class="bi bi-pencil-square"></i> Edit
+            </a>
+            <a asp-page="./Index" class="btn btn-secondary">
+                <i class="bi bi-arrow-left"></i> Back to List
+            </a>
+        </div>
+    </div>
+</div>

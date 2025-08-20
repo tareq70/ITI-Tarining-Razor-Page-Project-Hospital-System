@@ -1,0 +1,46 @@
+﻿@page
+@model ITI_Tarining_Razor_Page_Project_Hospital_System.Pages.Patients.IndexModel
+@{
+    ViewData["Title"] = "Patients";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h2 class="text-primary">Patients List</h2>
+    <a class="btn btn-success" asp-page="Create">
+        <i class="bi bi-plus-circle"></i> Create New
+    </a>
+</div>
+
+<table class="table table-bordered table-striped shadow-sm w-100">
+    <thead class="table-dark">
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Patient[0].Name)</th>
+            <th>@Html.DisplayNameFor(model => model.Patient[0].Diagnosis)</th>
+            <th>@Html.DisplayNameFor(model => model.Patient[0].Address)</th>
+            <th>@Html.DisplayNameFor(model => model.Patient[0].Hospital)</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Patient)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Diagnosis</td>
+                <td>@item.Address</td>
+                <td>@item.Hospital?.Name</td>
+                <td class="d-flex gap-2">
+                    <a class="btn btn-sm btn-warning" asp-page="./Edit" asp-route-id="@item.Id">
+                        <i class="bi bi-pencil-square"></i> Edit
+                    </a>
+                    <a class="btn btn-sm btn-info text-white" asp-page="./Details" asp-route-id="@item.Id">
+                        <i class="bi bi-eye"></i> Details
+                    </a>
+                    <a class="btn btn-sm btn-danger" asp-page="./Delete" asp-route-id="@item.Id">
+                        <i class="bi bi-trash"></i> Delete
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

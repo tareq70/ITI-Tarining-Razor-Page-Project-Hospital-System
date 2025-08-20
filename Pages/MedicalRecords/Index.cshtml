@@ -1,0 +1,48 @@
+﻿@page
+@model ITI_Tarining_Razor_Page_Project_Hospital_System.Pages.MedicalRecords.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.MedicalRecord[0].DateOfExamination)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MedicalRecord[0].Problem)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MedicalRecord[0].Pat)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.MedicalRecord) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateOfExamination)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Problem)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pat.Id)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
