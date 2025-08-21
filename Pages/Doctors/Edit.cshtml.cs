@@ -35,7 +35,7 @@ namespace ITI_Tarining_Razor_Page_Project_Hospital_System.Pages.Doctors
                 return NotFound();
             }
             Doctor = doctor;
-           ViewData["HosId"] = new SelectList(_context.Hospitals, "Id", "Id");
+           ViewData["HosId"] = new SelectList(_context.Hospitals, "Id", "Name");
             return Page();
         }
 
@@ -58,6 +58,8 @@ namespace ITI_Tarining_Razor_Page_Project_Hospital_System.Pages.Doctors
             {
                 if (!DoctorExists(Doctor.Id))
                 {
+                    ViewData["HosId"] = new SelectList(_context.Hospitals, "Id", "Name");
+
                     return NotFound();
                 }
                 else
