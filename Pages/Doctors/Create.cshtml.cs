@@ -17,27 +17,27 @@ namespace ITI_Tarining_Razor_Page_Project_Hospital_System.Pages.Doctors
         {
             _context = context;
         }
+        public SelectList HospitalsList { get; set; } = default!;
+
+        [BindProperty]
+        public Doctor doctor { get; set; } = default!;
 
         public IActionResult OnGet()
         {
-        ViewData["HosId"] = new SelectList(_context.Hospitals, "Id", "Id");
+            HospitalsList = new SelectList(_context.Hospitals, "Id", "Name");
             return Page();
         }
 
-        [BindProperty]
-        public Doctor Doctor { get; set; } = default!;
-
-        // For more information, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid)
             {
+                HospitalsList = new SelectList(_context.Hospitals, "Id", "Name");
                 return Page();
             }
 
-            _context.Doctors.Add(Doctor);
+            _context.Doctors.Add(doctor);
             await _context.SaveChangesAsync();
-
             return RedirectToPage("./Index");
         }
     }

@@ -24,5 +24,5 @@ public partial class Doctor
 
     [ForeignKey("HosId")]
     [InverseProperty("Doctors")]
-    public virtual Hospital Hos { get; set; } = null!;
+    public virtual Hospital? Hos { get; set; } = null!;
 }
