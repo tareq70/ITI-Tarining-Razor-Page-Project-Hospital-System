@@ -35,7 +35,7 @@ namespace ITI_Tarining_Razor_Page_Project_Hospital_System.Pages.MedicalRecords
                 return NotFound();
             }
             MedicalRecord = medicalrecord;
-           ViewData["PatId"] = new SelectList(_context.Patients, "Id", "Id");
+           ViewData["PatId"] = new SelectList(_context.Patients, "Id", "Name");
             return Page();
         }
 
@@ -45,6 +45,7 @@ namespace ITI_Tarining_Razor_Page_Project_Hospital_System.Pages.MedicalRecords
         {
             if (!ModelState.IsValid)
             {
+                ViewData["PatId"] = new SelectList(_context.Patients, "Id", "Name");
                 return Page();
             }
 

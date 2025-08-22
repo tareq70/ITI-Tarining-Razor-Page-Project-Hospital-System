@@ -2,36 +2,44 @@
 @model ITI_Tarining_Razor_Page_Project_Hospital_System.Pages.MedicalRecords.DetailsModel
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Medical Record Details";
 }
 
-<h1>Details</h1>
+<h1 class="mb-4 text-center text-primary">🔍 Medical Record Details</h1>
 
-<div>
-    <h4>MedicalRecord</h4>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.MedicalRecord.DateOfExamination)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.MedicalRecord.DateOfExamination)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.MedicalRecord.Problem)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.MedicalRecord.Problem)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.MedicalRecord.Pat)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.MedicalRecord.Pat.Id)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-page="./Edit" asp-route-id="@Model.MedicalRecord.Id">Edit</a> |
-    <a asp-page="./Index">Back to List</a>
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card shadow-lg border-0 rounded-3">
+            <div class="card-body p-4">
+                <h4 class="card-title text-primary fw-bold mb-3">
+                    👤 @Model.MedicalRecord.Pat?.Name
+                </h4>
+                <hr />
+
+                <!-- Date -->
+                <p class="mb-2">
+                    <strong>📅 Date of Examination:</strong><br />
+                    @Model.MedicalRecord.DateOfExamination.ToString("yyyy-MM-dd")
+                </p>
+
+                <!-- Problem -->
+                <p class="mb-2">
+                    <strong>🩺 Problem:</strong><br />
+                    @Model.MedicalRecord.Problem
+                </p>
+
+                <!-- Patient Info -->
+                <p class="mb-2">
+                    <strong>👤 Patient :</strong><br />
+                    @Model.MedicalRecord.Pat?.Name
+                </p>
+
+                <!-- Actions -->
+                <div class="d-flex justify-content-between mt-4">
+                    <a asp-page="./Edit" asp-route-id="@Model.MedicalRecord.Id" class="btn btn-warning">✏️ Edit</a>
+                    <a asp-page="./Index" class="btn btn-secondary">⬅️ Back to List</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

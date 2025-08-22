@@ -21,5 +21,5 @@ public partial class MedicalRecord
 
     [ForeignKey("PatId")]
     [InverseProperty("MedicalRecords")]
-    public virtual Patient Pat { get; set; } = null!;
+    public virtual Patient? Pat { get; set; } = null!;
 }
